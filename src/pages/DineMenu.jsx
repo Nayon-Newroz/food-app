@@ -229,7 +229,7 @@ const useStyles = makeStyles({
     marginRight: "10px",
   },
   buttonStyle: {
-    background: "#F96C45 !important",
+    background: "black !important",
     padding: "0px !important",
     borderRadius: "5px !important",
   },
@@ -307,23 +307,25 @@ const DineMenu = () => {
       >
         <Box sx={{ margin: "20px 0px" }}>
           <Grid container alignItems="center">
-            <Grid item xs={10} >
+            <Grid item xs={10}>
               <Grid container alignItems="center">
                 <Grid item xs={2}>
                   <img src={logo} alt="" className={classes.logoStyle} />
                 </Grid>
                 <Grid item xs={10}>
                   <h4 className={classes.h4}>KFC-Banani</h4>
-                  <Grid container alignItems="center" >
+                  <Grid container alignItems="center">
                     <Grid item>
-                   
                       <img
                         src={locationIcon}
                         alt=""
-                        style={{ display: "block",marginRight:'4px'}}
-                      /> 
+                        style={{ display: "block", marginRight: "4px" }}
+                      />
                     </Grid>
-                    <Grid item style={{overflow:'hidden',whiteSpace:'nowrap'}}>
+                    <Grid
+                      item
+                      style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+                    >
                       <p className={classes.p}>
                         Blue Ocean Tower, 40 kemal Atatu...
                       </p>
@@ -428,7 +430,7 @@ const DineMenu = () => {
           <FormControl fullWidth variant="outlined">
             <OutlinedInput
               id="outlined-adornment-password"
-              placeholder='Search'
+              placeholder="Search"
               // value={values.password}
               // onChange={handleChange('password')}
               className={classes.inputStyle}
@@ -495,7 +497,6 @@ const DineMenu = () => {
           height: "150px",
         }}
       >
-       
         <RestaurantItemCorousel />
       </Container>
       <Container
@@ -524,13 +525,11 @@ const DineMenu = () => {
       <Container
         maxWidth="xs"
         style={{
-          paddingLeft: "0px",
-          paddingRight: "0px",
+          paddingLeft: "10px",
+          paddingRight: "10px",
           margin: "15px auto",
-        
         }}
       >
-        
         <RecommendationItemCarousel />
       </Container>
       <Container
