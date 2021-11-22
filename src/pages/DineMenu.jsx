@@ -803,7 +803,7 @@ const DineMenu = () => {
             <label className={`${classes.p}`}>05 items</label>
           </Box>
 
-          {[1, 2, 3].map((item, i) => (
+          {[1, 2, 3,4,5,6,7].map((item, i) => (
             <div key={i} className={classes.cardContainer}>
               <Grid
                 container
