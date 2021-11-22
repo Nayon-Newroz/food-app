@@ -1,72 +1,36 @@
 import React, { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import Container from "@mui/material/Container";
-import batch from "../assets/images/batch.svg";
 import FilterIcon from "../assets/images/FilterIcon.svg";
-import burger from "../assets/images/burger.svg";
 import burgerBanner from "../assets/images/burgerBanner.svg";
 import cardFoodImage from "../assets/images/cardFoodImage.svg";
-import chicken from "../assets/images/chicken.svg";
 import explore from "../assets/images/explore.svg";
 import menu from "../assets/images/menu.svg";
 import offers from "../assets/images/offers.svg";
 import Recommendations from "../assets/images/Recommendations.svg";
 import restaurantImage from "../assets/images/restaurantImage.svg";
-import Like from "../assets/images/Like.svg";
 import dineIn from "../assets/images/dineIn.svg";
 import logo from "../assets/images/logo.svg";
 import locationIcon from "../assets/images/locationIcon.png";
 import Search from "../assets/images/Search.png";
 import personIcon from "../assets/images/personIcon.png";
-import arrowDown from "../assets/images/arrowDown.png";
-import cardBackground1 from "../assets/images/cardBackground1.png";
-import cardBackground2 from "../assets/images/cardBackground2.png";
-import square from "../assets/images/square.svg";
-import user from "../assets/images/user.svg";
-import Heart from "../assets/images/Heart.svg";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
+import arrowDown from "../assets/images/arrowDown.png"; 
+import square from "../assets/images/square.svg"; 
+import menuIcon from "../assets/images/menuIcon.svg"; 
+import Box from "@mui/material/Box"; 
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import DeleteIcon from "@mui/icons-material/Delete";
-import SendIcon from "@mui/icons-material/Send";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
 import { makeStyles } from "@mui/styles";
 import RestaurantItemCorousel from "./partial/RestaurantItemCorousel";
 import RecommendationItemCarousel from "./partial/RecommendationItemCarousel";
-import Input from "@mui/material/Input";
-import FilledInput from "@mui/material/FilledInput";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const useStyles = makeStyles({
-  // root: {
-  //   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-  //   border: 0,
-  //   borderRadius: 3,
-  //   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-  //   color: "white",
-  //   height: 48,
-  //   padding: "0 30px",
-  // },
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -115,7 +79,7 @@ const useStyles = makeStyles({
   iconButtonStyle: {
     color: "black !important",
     border: "none !important",
-    paddingLeft: "0px !important",
+    paddingLeft: "4px !important",
     fontSize: "16px !important",
     fontFamily: "'Inter', sans-serif !important",
     fontWeight: "600 !important",
@@ -146,30 +110,6 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
   },
-  card: {
-    backgroundImage: `url(${cardBackground1})`,
-    height: "150px",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    position: "relative",
-    width: "220px",
-    borderRadius: "7px",
-  },
-  card2: {
-    height: "200px",
-    width: "180px",
-    borderRadius: "7px",
-    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-  },
-  card2ImgDiv: {
-    height: "100px",
-    position: "relative",
-  },
-  card2DetailDiv: {
-    height: "100px",
-    padding: "5px 7px",
-  },
   menuStyle: {
     height: "70px",
     background: "#fff",
@@ -182,7 +122,7 @@ const useStyles = makeStyles({
   },
   menuStyle2: {
     height: "50px",
-    background: "#fff",
+    // background: "#fff",
     // borderRadius: "16px 16px 0px 0px",
 
     bottom: 0,
@@ -212,22 +152,7 @@ const useStyles = makeStyles({
 
     borderBottom: "2px solid black",
   },
-  cardIconDiv: {
-    position: "absolute",
-    right: 10,
-    top: 10,
-  },
-  cardTextDiv: {
-    position: "absolute",
-    bottom: 10,
-    left: 10,
-    display: "flex",
-    alignItems: "center",
-  },
-  cardImg: {
-    height: "30px",
-    marginRight: "10px",
-  },
+
   buttonStyle: {
     background: "black !important",
     padding: "0px !important",
@@ -245,67 +170,62 @@ const useStyles = makeStyles({
 });
 
 const DineMenu = () => {
-  const classes = useStyles();
-  const [scroll, setScroll] = useState(0);
+  const classes = useStyles(); 
   const [active, setActive] = useState("Deals");
   const fnActive = (id) => {
     // setActive(id);
     var elmntToView1 = document.getElementById("menu");
     elmntToView1.scrollIntoView({
-      behavior: "smooth",
-      // block: "end",
-      // inline: "nearest",
+      behavior: "smooth", 
     });
 
-    var elmntToView = document.getElementById(id);
-    elmntToView.scrollIntoView({
-      behavior: "smooth",
-      // block: "end",
-      // inline: "nearest",
-    });
+    const yOffset = -50;
+    const element = document.getElementById(id);
+    const y =
+      element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     document.addEventListener("scroll", () => {
       const scrollCheck = window.scrollY;
-      console.log("scrollCheck", scrollCheck);
+      // console.log("scrollCheck", scrollCheck);
       let sectionId;
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        console.log("sectionTop", sectionTop);
-        const sectionHeight = section.clientHeight;
+        const sectionTop = section.offsetTop - 70;
+        // console.log("sectionTop", sectionTop, sectionTop-50);
+        // const sectionHeight = section.clientHeight; 
         // console.log("sectionHeight", sectionHeight);
-        let scrollCheckwithoutmenuHeight = scrollCheck - 50;
-        console.log(
-          "scrollCheckwithoutmenuHeight",
-          scrollCheckwithoutmenuHeight
-        );
 
         if (scrollCheck >= sectionTop) {
           sectionId = section.getAttribute("id");
           setActive(sectionId);
-          console.log("sectionId", sectionId);
+          // console.log("sectionId", sectionId);
         }
+        
       });
-
-      // if (scrollCheck !== scroll) {
-      //   setScroll(scrollCheck)
-      // }
     });
+   
+    console.log('body',window.screen.availHeight);
   }, []);
+  // useEffect(() => {
+  //   setActive("Deals");
+  //   window.scrollTo(0, 0);
+  // }, []);
   return (
     <div>
       <CssBaseline />
       <Container
         maxWidth="xs"
         style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
+      
+          padding:'15px 20px 15px 20px',
           borderBottom: "1px solid #EEEEEE",
         }}
-      >
-        <Box sx={{ margin: "20px 0px" }}>
+       >
+      
           <Grid container alignItems="center">
             <Grid item xs={10}>
               <Grid container alignItems="center">
@@ -315,7 +235,7 @@ const DineMenu = () => {
                 <Grid item xs={10}>
                   <h4 className={classes.h4}>KFC-Banani</h4>
                   <Grid container alignItems="center">
-                    <Grid item>
+                    <Grid item xs={0.5}>
                       <img
                         src={locationIcon}
                         alt=""
@@ -324,11 +244,15 @@ const DineMenu = () => {
                     </Grid>
                     <Grid
                       item
-                      style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+                      xs={11.5}
+                      style={{
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                      }}
+                      className={classes.p}
                     >
-                      <p className={classes.p}>
-                        Blue Ocean Tower, 40 kemal Atatu...
-                      </p>
+                      &nbsp; Blue Ocean Tower, 40 kemal Atatu...
                     </Grid>
                   </Grid>
                 </Grid>
@@ -338,17 +262,17 @@ const DineMenu = () => {
               <img src={square} alt="" className={classes.imageStyle} />
             </Grid>
           </Grid>
-        </Box>
+      
       </Container>
       <Container
         maxWidth="xs"
         style={{
-          paddingLeft: "20px",
-          paddingRight: "0px",
+          
+          padding:'15px 0px 15px 20px'
           // borderBottom: "2px solid #EEEEEE",
         }}
       >
-        <Box sx={{ margin: "15px 0px" }}>
+      
           <Grid container alignItems="center">
             <Grid item>
               <Button
@@ -384,8 +308,9 @@ const DineMenu = () => {
               </Button>
             </Grid>
           </Grid>
-        </Box>
+       
       </Container>
+      
       <Container
         maxWidth="xs"
         style={{
@@ -426,7 +351,7 @@ const DineMenu = () => {
           paddingRight: "20px",
         }}
       >
-        <Box sx={{ margin: "15px 0px" }}>
+        <Box sx={{ margin: "25px 0px" }}>
           <FormControl fullWidth variant="outlined">
             <OutlinedInput
               id="outlined-adornment-password"
@@ -447,7 +372,7 @@ const DineMenu = () => {
                     // onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    <img src={Search} alt="" />
+                    <img src={Search} alt="" style={{ marginRight: "10px" }} />
                   </IconButton>
                 </InputAdornment>
               }
@@ -495,6 +420,7 @@ const DineMenu = () => {
           paddingRight: "20px",
           margin: "15px auto",
           height: "150px",
+          overflow: "hidden",
         }}
       >
         <RestaurantItemCorousel />
@@ -525,9 +451,10 @@ const DineMenu = () => {
       <Container
         maxWidth="xs"
         style={{
-          paddingLeft: "10px",
-          paddingRight: "10px",
+          paddingLeft: "20px",
+          paddingRight: "0px",
           margin: "15px auto",
+          overflow: "hidden",
         }}
       >
         <RecommendationItemCarousel />
@@ -538,7 +465,7 @@ const DineMenu = () => {
           paddingLeft: "20px",
           paddingRight: "20px",
           margin: "15px auto",
-          background: "#fff",
+          background: "#FAF9FB",
         }}
       >
         <div
@@ -556,7 +483,7 @@ const DineMenu = () => {
           margin: "15px auto",
           position: "sticky ",
           top: 0,
-          background: "#fff",
+          background: "#FAF9FB",
           zIndex: 20,
         }}
         id="menu"
@@ -567,6 +494,13 @@ const DineMenu = () => {
           alignItems="center"
           className={classes.menuStyle2}
         >
+          <Grid
+            item
+            // className={`${classes.itemStyle}`}
+          style={{width:'0px'}}
+          >
+         <img src={menuIcon} alt='' style={{display:'block',height:'20px',marginTop:'2px'}}/>
+          </Grid>
           <Grid
             item
             className={`${classes.itemStyle} ${
@@ -937,58 +871,10 @@ const DineMenu = () => {
       <br />
       <br />
       <br />
+      <br /> 
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <br /> 
     </div>
   );
 };
