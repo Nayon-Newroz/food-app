@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   card2: {
     minHeight: "200px",
     width: "100%",
-    borderRadius: "15px",
+
     boxShadow: "rgba(149, 157, 165, 0.2) 0px 0px 8px",
     // boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
     overflow: "hidden",
@@ -100,7 +100,7 @@ const RecommendationItemCarousel = () => {
   const settings = {
     // className: "center",
     // centerMode: true,
-    infinite: true,
+    // infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -157,11 +157,6 @@ const RecommendationItemCarousel = () => {
                         </Grid>
                       </Grid>
                       <Grid item xs={8}>
-                        {/* <p className={classes.p} style={{ textAlign: "right" }}>
-                          {" "}
-                          Emili Jacsons
-                        </p> */}
-
                         <Stack
                           direction="row"
                           spacing={-0.7}

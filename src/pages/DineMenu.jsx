@@ -3,21 +3,21 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import FilterIcon from "../assets/images/FilterIcon.svg";
 import burgerBanner from "../assets/images/burgerBanner.svg";
-import cardFoodImage from "../assets/images/cardFoodImage.svg";
+import cardFoodImage from "../assets/images/cardFoodImage.png";
 import explore from "../assets/images/explore.svg";
 import menu from "../assets/images/menu.svg";
 import offers from "../assets/images/offers.svg";
 import Recommendations from "../assets/images/Recommendations.svg";
-import restaurantImage from "../assets/images/restaurantImage.svg";
+import restaurantImage from "../assets/images/restaurantImage.png";
 import dineIn from "../assets/images/dineIn.svg";
 import logo from "../assets/images/logo.svg";
-import locationIcon from "../assets/images/locationIcon.png";
+import locationIcon from "../assets/images/LocationIcon.svg";
 import Search from "../assets/images/Search.png";
 import personIcon from "../assets/images/personIcon.png";
-import arrowDown from "../assets/images/arrowDown.png"; 
-import square from "../assets/images/square.svg"; 
-import menuIcon from "../assets/images/menuIcon.svg"; 
-import Box from "@mui/material/Box"; 
+import arrowDown from "../assets/images/arrowDown.png";
+import square from "../assets/images/square.svg";
+import menuIcon from "../assets/images/menuIcon.svg";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
@@ -29,8 +29,9 @@ import RecommendationItemCarousel from "./partial/RecommendationItemCarousel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
+import DineInDetailCorousel from "./partial/DineInDetailCorousel";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -62,6 +63,7 @@ const useStyles = makeStyles({
     fontWeight: 500,
     margin: "13px 0",
     color: "#666E7A",
+    // cursor:'pointer',
   },
   logoStyle: {
     height: "45px",
@@ -83,6 +85,11 @@ const useStyles = makeStyles({
     fontSize: "16px !important",
     fontFamily: "'Inter', sans-serif !important",
     fontWeight: "600 !important",
+    
+    [theme.breakpoints.down(380)]: {
+
+      fontSize: "10px !important",
+    },
   },
   iconButtonStyle2: {
     color: "#666E7A !important",
@@ -139,6 +146,7 @@ const useStyles = makeStyles({
     // padding: "0 10px",
     borderTop: "2px solid rgba(0,0,0,0)",
     borderBottom: "2px solid rgba(0,0,0,0)",
+    cursor: "pointer",
   },
   active: {
     ["& p"]: {
@@ -167,16 +175,16 @@ const useStyles = makeStyles({
   inputStyle: {
     boxShadow: "rgba(149, 157, 165, 0.2) 0px 1px 4px",
   },
-});
+}));
 
 const DineMenu = () => {
-  const classes = useStyles(); 
+  const classes = useStyles();
   const [active, setActive] = useState("Deals");
   const fnActive = (id) => {
     // setActive(id);
     var elmntToView1 = document.getElementById("menu");
     elmntToView1.scrollIntoView({
-      behavior: "smooth", 
+      behavior: "smooth",
     });
 
     const yOffset = -50;
@@ -196,7 +204,7 @@ const DineMenu = () => {
       sections.forEach((section) => {
         const sectionTop = section.offsetTop - 70;
         // console.log("sectionTop", sectionTop, sectionTop-50);
-        // const sectionHeight = section.clientHeight; 
+        // const sectionHeight = section.clientHeight;
         // console.log("sectionHeight", sectionHeight);
 
         if (scrollCheck >= sectionTop) {
@@ -204,11 +212,10 @@ const DineMenu = () => {
           setActive(sectionId);
           // console.log("sectionId", sectionId);
         }
-        
       });
     });
-   
-    console.log('body',window.screen.availHeight);
+
+    console.log("body", window.screen.availHeight);
   }, []);
   // useEffect(() => {
   //   setActive("Deals");
@@ -220,97 +227,92 @@ const DineMenu = () => {
       <Container
         maxWidth="xs"
         style={{
-      
-          padding:'15px 20px 15px 20px',
+          padding: "15px 20px 15px 20px",
           borderBottom: "1px solid #EEEEEE",
         }}
-       >
-      
-          <Grid container alignItems="center">
-            <Grid item xs={10}>
-              <Grid container alignItems="center">
-                <Grid item xs={2}>
-                  <img src={logo} alt="" className={classes.logoStyle} />
-                </Grid>
-                <Grid item xs={10}>
-                  <h4 className={classes.h4}>KFC-Banani</h4>
-                  <Grid container alignItems="center">
-                    <Grid item xs={0.5}>
-                      <img
-                        src={locationIcon}
-                        alt=""
-                        style={{ display: "block", marginRight: "4px" }}
-                      />
-                    </Grid>
-                    <Grid
-                      item
-                      xs={11.5}
-                      style={{
-                        overflow: "hidden",
-                        whiteSpace: "nowrap",
-                        textOverflow: "ellipsis",
-                      }}
-                      className={classes.p}
-                    >
-                      &nbsp; Blue Ocean Tower, 40 kemal Atatu...
-                    </Grid>
+      >
+        <Grid container alignItems="center">
+          <Grid item xs={10}>
+            <Grid container alignItems="center">
+              <Grid item xs={2}>
+                <img src={logo} alt="" className={classes.logoStyle} />
+              </Grid>
+              <Grid item xs={10}>
+                <h4 className={classes.h4}>KFC-Banani</h4>
+                <Grid container alignItems="center">
+                  <Grid item xs={0.5}>
+                    <img
+                      src={locationIcon}
+                      alt=""
+                      style={{ display: "block", marginRight: "4px" }}
+                    />
+                  </Grid>
+                  <Grid
+                    item
+                    xs={11.5}
+                    style={{
+                      overflow: "hidden",
+                      whiteSpace: "nowrap",
+                      textOverflow: "ellipsis",
+                    }}
+                    className={classes.p}
+                  >
+                    &nbsp; Blue Ocean Tower, 40 kemal Atatu...
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={2}>
-              <img src={square} alt="" className={classes.imageStyle} />
-            </Grid>
           </Grid>
-      
+          <Grid item xs={2}>
+            <img src={square} alt="" className={classes.imageStyle} />
+          </Grid>
+        </Grid>
       </Container>
       <Container
         maxWidth="xs"
         style={{
-          
-          padding:'15px 0px 15px 20px'
+          padding: "15px 0px 15px 20px",
           // borderBottom: "2px solid #EEEEEE",
         }}
       >
-      
-          <Grid container alignItems="center">
-            <Grid item>
-              <Button
-                disableRipple={true}
-                variant="outlined"
-                startIcon={<img src={dineIn} alt="" />}
-                endIcon={<img src={arrowDown} alt="" />}
-                className={classes.iconButtonStyle}
-              >
-                Dine-In
-              </Button>
-              &nbsp;
-            </Grid>
-            <Grid item>
-              <Button
-                className={classes.iconButtonStyle2}
-                disableRipple={true}
-                variant="outlined"
-                startIcon={<img src={personIcon} alt="" />}
-                // endIcon={<img src={arrowDown} alt="" />}
-              >
-                2{" "}
-                <span
-                  style={{
-                    background: "#666E7A",
-                    height: "7px",
-                    width: "7px",
-                    borderRadius: "50%",
-                    margin: "0 5px",
-                  }}
-                ></span>{" "}
-                Table No: 5
-              </Button>
-            </Grid>
+        <Grid container alignItems="center">
+          <Grid item xs={4}>
+            <Button
+              disableRipple={true}
+              variant="outlined"
+              startIcon={<img src={dineIn} alt="" />}
+              endIcon={<img src={arrowDown} alt="" />}
+              className={classes.iconButtonStyle}
+            >
+              Dine-In
+            </Button>
+            &nbsp;
           </Grid>
-       
+          <Grid item xs={8} style={{ overflow: "hidden" }}>
+            {/* <Button
+              className={classes.iconButtonStyle2}
+              disableRipple={true}
+              variant="outlined"
+              startIcon={<img src={personIcon} alt="" />}
+              // endIcon={<img src={arrowDown} alt="" />}
+             >
+              2{" "}
+              <span
+                style={{
+                  background: "#666E7A",
+                  height: "7px",
+                  width: "7px",
+                  borderRadius: "50%",
+                  margin: "0 5px",
+                }}
+              ></span>{" "}
+              Table No: 5
+            </Button> */}
+            <DineInDetailCorousel />
+          </Grid>
+        </Grid>
       </Container>
-      
+
       <Container
         maxWidth="xs"
         style={{
@@ -497,9 +499,13 @@ const DineMenu = () => {
           <Grid
             item
             // className={`${classes.itemStyle}`}
-          style={{width:'0px'}}
+            style={{ width: "0px" }}
           >
-         <img src={menuIcon} alt='' style={{display:'block',height:'20px',marginTop:'2px'}}/>
+            <img
+              src={menuIcon}
+              alt=""
+              style={{ display: "block", height: "20px", marginTop: "2px" }}
+            />
           </Grid>
           <Grid
             item
@@ -515,33 +521,27 @@ const DineMenu = () => {
             className={`${classes.itemStyle} ${
               active === "Popular" ? classes.active : null
             }`}
+            onClick={() => fnActive("Popular")}
           >
-            <p className={classes.menuItem} onClick={() => fnActive("Popular")}>
-              Popular
-            </p>
+            <p className={classes.menuItem}>Popular</p>
           </Grid>
           <Grid
             item
             className={`${classes.itemStyle} ${
               active === "For One" ? classes.active : null
             }`}
+            onClick={() => fnActive("For One")}
           >
-            <p className={classes.menuItem} onClick={() => fnActive("For One")}>
-              For One
-            </p>
+            <p className={classes.menuItem}>For One</p>
           </Grid>
           <Grid
             item
             className={`${classes.itemStyle} ${
               active === "For Sharing" ? classes.active : null
             }`}
+            onClick={() => fnActive("For Sharing")}
           >
-            <p
-              className={classes.menuItem}
-              onClick={() => fnActive("For Sharing")}
-            >
-              For Sharing
-            </p>
+            <p className={classes.menuItem}>For Sharing</p>
           </Grid>
         </Grid>
       </Container>
@@ -803,7 +803,7 @@ const DineMenu = () => {
             <label className={`${classes.p}`}>05 items</label>
           </Box>
 
-          {[1, 2, 3,4,5,6,7].map((item, i) => (
+          {[1, 2, 3, 4, 5, 6, 7].map((item, i) => (
             <div key={i} className={classes.cardContainer}>
               <Grid
                 container
@@ -871,10 +871,10 @@ const DineMenu = () => {
       <br />
       <br />
       <br />
-      <br /> 
       <br />
       <br />
-      <br /> 
+      <br />
+      <br />
     </div>
   );
 };

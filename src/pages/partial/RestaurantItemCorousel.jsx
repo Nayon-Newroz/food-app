@@ -4,11 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { makeStyles } from "@mui/styles";
 import cardBackground1 from "../../assets/images/cardBackground1.png";
+import cardBackground2 from "../../assets/images/cardBackground2.png";
 import user from "../../assets/images/user.svg";
-import Heart from "../../assets/images/Heart.svg"; 
+import Heart from "../../assets/images/Heart.svg";
 
 const useStyles = makeStyles({
-  
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -34,13 +34,7 @@ const useStyles = makeStyles({
     color: "#666E7A",
     margin: 0,
   },
-  
-  
-  
- 
-  
- 
- 
+
   card: {
     backgroundImage: `url(${cardBackground1})`,
     height: "150px",
@@ -48,16 +42,10 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     position: "relative",
-    // width: "220px",
+
     width: "100%",
-    borderRadius: "7px",
-    // marginRight:'20px'
   },
-  
-   
-  
-  
-   
+
   cardIconDiv: {
     position: "absolute",
     right: 10,
@@ -74,13 +62,10 @@ const useStyles = makeStyles({
     height: "30px",
     marginRight: "10px",
   },
- 
-  
 });
 
 const RestaurantItemCorousel = () => {
   const classes = useStyles();
-
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -92,7 +77,7 @@ const RestaurantItemCorousel = () => {
       />
     );
   }
-  
+
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -104,65 +89,67 @@ const RestaurantItemCorousel = () => {
     );
   }
 
-
-
   const settings = {
     // className: "center",
     // centerMode: true,
-    infinite: true,
+    // infinite: true,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
     swipeToSlide: true,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div style={{minWidth:'500px'}}>
+    <div style={{ minWidth: "500px" }}>
       <Slider {...settings}>
         {[1, 2, 3, 4, 5, 6].map((item, i) => (
-          <div
-            key={i}
-            // style={{ marginRight:'15px !important' }}
-          >
-              <div style={{ padding: "0 20px 0 0",margin:'auto' }}>
-       
-            <div className={classes.card}>
-              <div className={classes.cardIconDiv}>
-                <img src={Heart} alt="" style={{ display: "block" }} />
-                <p className={classes.p} style={{ color: "#fff" }}>
-                  95 
-                </p>
-              </div>
-              <div className={classes.cardTextDiv}>
-                <img src={user} alt="" className={classes.cardImg} />
-                <div>
-                  <p
-                    className={classes.p}
-                    style={{ color: "#fff", fontWeight: 600 }}
-                  >
-                    @rakib12
-                  </p>
-                  <p
-                    className={classes.p}
-                    style={{ color: "#fff", fontSize: "10px" }}
-                  >
-                    2 days ago{" "}
-                    <span
-                      style={{
-                        background: "#fff",
-                        height: "4px",
-                        width: "4px",
-                        borderRadius: "50%",
-                        margin: "0 5px",
-                        display: "inline-block",
-                      }}
-                    ></span>{" "}
-                    Instagram
+          <div key={i}>
+            <div style={{ padding: "0 20px 0 0", margin: "auto" }}>
+              <div
+                className={classes.card}
+                style={{
+                  backgroundImage:
+                    i % 2 === 0
+                      ? `url(${cardBackground1})`
+                      : `url(${cardBackground2})`,
+                }}
+              >
+                <div className={classes.cardIconDiv}>
+                  <img src={Heart} alt="" style={{ display: "block" }} />
+                  <p className={classes.p} style={{ color: "#fff" }}>
+                    95
                   </p>
                 </div>
+                <div className={classes.cardTextDiv}>
+                  <img src={user} alt="" className={classes.cardImg} />
+                  <div>
+                    <p
+                      className={classes.p}
+                      style={{ color: "#fff", fontWeight: 600 }}
+                    >
+                      @rakib12
+                    </p>
+                    <p
+                      className={classes.p}
+                      style={{ color: "#fff", fontSize: "10px" }}
+                    >
+                      2 days ago{" "}
+                      <span
+                        style={{
+                          background: "#fff",
+                          height: "4px",
+                          width: "4px",
+                          borderRadius: "50%",
+                          margin: "0 5px",
+                          display: "inline-block",
+                        }}
+                      ></span>{" "}
+                      Instagram
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         ))}
