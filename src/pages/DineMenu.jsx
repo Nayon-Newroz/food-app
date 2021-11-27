@@ -66,8 +66,9 @@ const useStyles = makeStyles((theme) => ({
     // cursor:'pointer',
   },
   logoStyle: {
-    height: "45px",
-    marginRight: "10px",
+    // height: "45px",
+    width: "100%",
+    paddingRight: "10px",
     display: "inherit",
   },
   imageStyle: {
@@ -79,16 +80,15 @@ const useStyles = makeStyles((theme) => ({
   },
 
   iconButtonStyle: {
-    color: "black !important",
+    color: "#272D2F !important",
     border: "none !important",
     paddingLeft: "4px !important",
     fontSize: "16px !important",
     fontFamily: "'Inter', sans-serif !important",
     fontWeight: "600 !important",
-    
-    [theme.breakpoints.down(380)]: {
 
-      fontSize: "10px !important",
+    [theme.breakpoints.down(376)]: {
+      fontSize: "15px !important",
     },
   },
   iconButtonStyle2: {
@@ -150,19 +150,19 @@ const useStyles = makeStyles((theme) => ({
   },
   active: {
     ["& p"]: {
-      color: "black",
+      color: "#272D2F",
       fontWeight: 600,
     },
     ["& h4"]: {
-      color: "black",
+      color: "#272D2F",
       fontWeight: 600,
     },
 
-    borderBottom: "2px solid black",
+    borderBottom: "2px solid #272D2F",
   },
 
   buttonStyle: {
-    background: "black !important",
+    background: "#272D2F !important",
     padding: "0px !important",
     borderRadius: "5px !important",
   },
@@ -227,7 +227,7 @@ const DineMenu = () => {
       <Container
         maxWidth="xs"
         style={{
-          padding: "15px 20px 15px 20px",
+          padding: "15px 20px",
           borderBottom: "1px solid #EEEEEE",
         }}
       >
@@ -276,7 +276,7 @@ const DineMenu = () => {
         }}
       >
         <Grid container alignItems="center">
-          <Grid item xs={4}>
+          <Grid item xs={4.5}>
             <Button
               disableRipple={true}
               variant="outlined"
@@ -288,26 +288,7 @@ const DineMenu = () => {
             </Button>
             &nbsp;
           </Grid>
-          <Grid item xs={8} style={{ overflow: "hidden" }}>
-            {/* <Button
-              className={classes.iconButtonStyle2}
-              disableRipple={true}
-              variant="outlined"
-              startIcon={<img src={personIcon} alt="" />}
-              // endIcon={<img src={arrowDown} alt="" />}
-             >
-              2{" "}
-              <span
-                style={{
-                  background: "#666E7A",
-                  height: "7px",
-                  width: "7px",
-                  borderRadius: "50%",
-                  margin: "0 5px",
-                }}
-              ></span>{" "}
-              Table No: 5
-            </Button> */}
+          <Grid item xs={7.5} style={{ overflow: "hidden" }}>
             <DineInDetailCorousel />
           </Grid>
         </Grid>
@@ -471,11 +452,15 @@ const DineMenu = () => {
         }}
       >
         <div
-          style={{
-            height: "250px",
-          }}
-          className={classes.backgroundStyle2}
-        ></div>
+          style={
+            {
+              // height: "250px",
+            }
+          }
+          // className={classes.backgroundStyle2}
+        >
+          <img src={burgerBanner} alt="" width="100%" height="100%" />
+        </div>
       </Container>
       <Container
         maxWidth="xs"
@@ -591,14 +576,14 @@ const DineMenu = () => {
                     style={{ fontWeight: "17px", marginBottom: "7px" }}
                   >
                     Amet minim mollit non est sit aliua dolor do...
-                    <span style={{ color: "black" }}>Read More</span>
+                    <span style={{ color: "#272D2F" }}>Read More</span>
                   </p>
                   <Grid container alignItems="center">
                     <Grid item xs={9}>
                       <Grid container alignItems="center">
                         <label
                           className={classes.h6}
-                          style={{ color: "black", fontWeight: 600 }}
+                          style={{ color: "#272D2F", fontWeight: 600 }}
                         >
                           Tk. 11.05
                         </label>
@@ -670,14 +655,14 @@ const DineMenu = () => {
                     style={{ fontWeight: "17px", marginBottom: "7px" }}
                   >
                     Amet minim mollit non est sit aliua dolor do...
-                    <span style={{ color: "black" }}>Read More</span>
+                    <span style={{ color: "#272D2F" }}>Read More</span>
                   </p>
                   <Grid container alignItems="center">
                     <Grid item xs={9}>
                       <Grid container alignItems="center">
                         <label
                           className={classes.h6}
-                          style={{ color: "black", fontWeight: 600 }}
+                          style={{ color: "#272D2F", fontWeight: 600 }}
                         >
                           Tk. 11.05
                         </label>
@@ -751,14 +736,14 @@ const DineMenu = () => {
                     style={{ fontWeight: "17px", marginBottom: "7px" }}
                   >
                     Amet minim mollit non est sit aliua dolor do...
-                    <span style={{ color: "black" }}>Read More</span>
+                    <span style={{ color: "#272D2F" }}>Read More</span>
                   </p>
                   <Grid container alignItems="center">
                     <Grid item xs={9}>
                       <Grid container alignItems="center">
                         <label
                           className={classes.h6}
-                          style={{ color: "black", fontWeight: 600 }}
+                          style={{ color: "#272D2F", fontWeight: 600 }}
                         >
                           Tk. 11.05
                         </label>
@@ -830,14 +815,14 @@ const DineMenu = () => {
                     style={{ fontWeight: "17px", marginBottom: "7px" }}
                   >
                     Amet minim mollit non est sit aliua dolor do...
-                    <span style={{ color: "black" }}>Read More</span>
+                    <span style={{ color: "#272D2F" }}>Read More</span>
                   </p>
                   <Grid container alignItems="center">
                     <Grid item xs={9}>
                       <Grid container alignItems="center">
                         <label
                           className={classes.h6}
-                          style={{ color: "black", fontWeight: 600 }}
+                          style={{ color: "#272D2F", fontWeight: 600 }}
                         >
                           Tk. 11.05
                         </label>

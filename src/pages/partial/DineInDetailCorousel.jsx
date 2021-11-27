@@ -92,7 +92,7 @@ const DineInDetailCorousel = () => {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div style={{ minWidth: "350px" }}>
+    <div style={{ minWidth: "350px"}}>
       <Slider {...settings}>
         {data.map((item, i) => (
           <div key={i}>
