@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import homeLogo from "../assets/images/homeLogo.png";
-import facebook from "../assets/images/facebook.png";
-import instagram from "../assets/images/instagram.png";
-import youtube from "../assets/images/youtube.png";
-import dishIcon from "../assets/images/dishIcon.png";
-import reserveIcon from "../assets/images/reserveIcon.png";
-import wallet from "../assets/images/wallet.png";
-import forwardIcon from "../assets/images/forwardIcon.png";
 import pickUpIconBlack from "../assets/images/pickUpIconBlack.svg";
 import pickUpIconWhite from "../assets/images/pickUpIconWhite.svg";
 import dineIconWhite from "../assets/images/dineIconWhite.svg";
@@ -23,16 +14,11 @@ import { makeStyles } from "@mui/styles";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { styled } from "@mui/material/styles";
 
 import InputLabel from "@mui/material/InputLabel";
-import { color } from "@mui/system";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   h2: {
@@ -62,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#272D2F",
     [theme.breakpoints.down(376)]: {
       fontSize: "16px",
-      },
+    },
   },
 
   h4: {
@@ -80,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#666E7A",
     [theme.breakpoints.down(376)]: {
       fontSize: "12px",
-      },
+    },
   },
   cardText: {
     fontSize: "14px",
@@ -97,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 400,
     [theme.breakpoints.down(376)]: {
       fontSize: "12px",
-      },
+    },
   },
   p: {
     fontSize: "12px",
@@ -211,7 +197,7 @@ const SetDine = () => {
     backgroundColor: theme.palette.background.paper,
   }));
   return (
-    <div style={{background:'#fff'}}>
+    <div style={{ background: "#fff" }}>
       <Container
         maxWidth="xs"
         style={{
@@ -454,7 +440,9 @@ const SetDine = () => {
           padding: "15px 20px ",
         }}
       >
-        <div className={classes.buttonStyle}>Start Ordering</div>
+        <Link to="/dine-menu" style={{textDecoration:'none'}}>
+          <div className={classes.buttonStyle}>Start Ordering</div>
+        </Link>
       </Container>
     </div>
   );
