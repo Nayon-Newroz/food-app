@@ -3,6 +3,7 @@ import DineMenu from "./DineMenu";
 import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SetDine from "./SetDine";
+import Navbar from "./partial/Navbar";
 
 const Navigation = () => {
   return (
@@ -21,6 +22,7 @@ const Navigation = () => {
           </Route>
         </Switch>
       </Router>
+      {/* <Navbar /> */}
     </div>
   );
 };

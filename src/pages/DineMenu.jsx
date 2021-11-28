@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import FilterIcon from "../assets/images/FilterIcon.svg";
 import burgerBanner from "../assets/images/burgerBanner.svg";
 import cardFoodImage from "../assets/images/cardFoodImage.png";
-import explore from "../assets/images/explore.svg";
+import exploreActive from "../assets/images/exploreActive.svg";
 import menu from "../assets/images/menu.svg";
 import offers from "../assets/images/offers.svg";
 import Recommendations from "../assets/images/Recommendations.svg";
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Inter', sans-serif !important",
     fontWeight: "600 !important",
 
-    [theme.breakpoints.down(376)]: {
+    [theme.breakpoints.down(411)]: {
       fontSize: "13px !important",
     },
   },
@@ -323,7 +323,7 @@ const DineMenu = () => {
           className={classes.menuStyle}
         >
           <Grid item className={`${classes.itemStyle} ${classes.active}`}>
-            <img src={explore} alt="" className={classes.centerIcon} />
+            <img src={exploreActive} alt="" className={classes.centerIcon} />
             <p className={`${classes.p}`}>Explore</p>
           </Grid>
           <Grid item className={classes.itemStyle}>
@@ -340,6 +340,9 @@ const DineMenu = () => {
           </Grid>
         </Grid>
       </Container>
+     
+     
+     
       <Container maxWidth="xs" className={classes.container2SidePadding}>
         <Box sx={{ margin: "25px 0px" }}>
           <FormControl fullWidth variant="outlined">
