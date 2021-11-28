@@ -175,6 +175,19 @@ const useStyles = makeStyles((theme) => ({
   inputStyle: {
     boxShadow: "rgba(149, 157, 165, 0.2) 0px 1px 4px",
   },
+  container2SidePadding: {
+    paddingLeft: "20px !important",
+    paddingRight: "20px !important",
+  },
+  container2SidePaddingAndMargin: {
+    paddingLeft: "20px !important",
+    paddingRight: "20px !important",
+    margin: "15px auto !important",
+  },
+  containerLeftSidePadding: {
+    paddingLeft: "20px !important",
+    paddingRight: "0px !important",
+  },
 }));
 
 const DineMenu = () => {
@@ -222,7 +235,7 @@ const DineMenu = () => {
   //   window.scrollTo(0, 0);
   // }, []);
   return (
-    <div>
+    <div style={{background:'#FAF9FB'}}>
       <CssBaseline />
       <Container
         maxWidth="xs"
@@ -327,13 +340,7 @@ const DineMenu = () => {
           </Grid>
         </Grid>
       </Container>
-      <Container
-        maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+      <Container maxWidth="xs" className={classes.container2SidePadding}>
         <Box sx={{ margin: "25px 0px" }}>
           <FormControl fullWidth variant="outlined">
             <OutlinedInput
@@ -375,13 +382,7 @@ const DineMenu = () => {
           </FormControl>
         </Box>
       </Container>
-      <Container
-        maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+      <Container maxWidth="xs" className={classes.container2SidePadding}>
         <Box sx={{ margin: "15px 0px" }}>
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item xs={6}>
@@ -398,23 +399,14 @@ const DineMenu = () => {
 
       <Container
         maxWidth="xs"
+        className={classes.container2SidePaddingAndMargin}
         style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          margin: "15px auto",
-         
           overflow: "hidden",
         }}
       >
         <RestaurantItemCorousel />
       </Container>
-      <Container
-        maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-        }}
-      >
+      <Container maxWidth="xs" className={classes.container2SidePadding}>
         <Box sx={{ margin: "15px 0px" }}>
           <Grid container justifyContent="space-between" alignItems="center">
             <Grid item xs={6}>
@@ -433,10 +425,8 @@ const DineMenu = () => {
 
       <Container
         maxWidth="xs"
+        className={classes.container2SidePaddingAndMargin}
         style={{
-          paddingLeft: "20px",
-          paddingRight: "0px",
-          margin: "15px auto",
           overflow: "hidden",
         }}
       >
@@ -444,21 +434,9 @@ const DineMenu = () => {
       </Container>
       <Container
         maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          margin: "15px auto",
-          background: "#FAF9FB",
-        }}
+        className={classes.container2SidePaddingAndMargin}
       >
-        <div
-          style={
-            {
-              // height: "250px",
-            }
-          }
-          // className={classes.backgroundStyle2}
-        >
+        <div>
           <img src={burgerBanner} alt="" width="100%" height="100%" />
         </div>
       </Container>
@@ -532,11 +510,7 @@ const DineMenu = () => {
       </Container>
       <Container
         maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          margin: "15px auto",
-        }}
+        className={classes.container2SidePaddingAndMargin}
       >
         <section id="Deals">
           <Box sx={{ margin: "15px 0px" }}>
@@ -613,11 +587,7 @@ const DineMenu = () => {
       </Container>
       <Container
         maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          margin: "15px auto",
-        }}
+        className={classes.container2SidePaddingAndMargin}
       >
         <section id="Popular">
           <Box sx={{ margin: "15px 0px" }}>
@@ -773,11 +743,7 @@ const DineMenu = () => {
       </Container>
       <Container
         maxWidth="xs"
-        style={{
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          margin: "15px auto",
-        }}
+        className={classes.container2SidePaddingAndMargin}
       >
         <section id="For Sharing">
           <Box sx={{ margin: "15px 0px" }}>
