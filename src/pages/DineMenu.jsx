@@ -402,7 +402,7 @@ const DineMenu = () => {
           paddingLeft: "20px",
           paddingRight: "20px",
           margin: "15px auto",
-          // height: "150px",
+         
           overflow: "hidden",
         }}
       >
