@@ -7,7 +7,7 @@ import personIcon from "../../assets/images/personIcon.png";
 import locationIcon from "../../assets/images/LocationIcon.svg";
 import Button from "@mui/material/Button";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -44,8 +44,17 @@ const useStyles = makeStyles({
     ["& .MuiButton-startIcon"]: {
       marginRight: "2px !important",
     },
+    [theme.breakpoints.down(376)]: {
+      fontSize: "10px !important",
+    },
   },
-});
+  carouselWidth:{
+    minWidth: "350px",
+    [theme.breakpoints.down(376)]: {
+      minWidth: "310px",
+    },
+  }
+}));
 
 const DineInDetailCorousel = () => {
   const data = [
@@ -92,7 +101,7 @@ const DineInDetailCorousel = () => {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div style={{ minWidth: "350px"}}>
+    <div className={classes.carouselWidth}>
       <Slider {...settings}>
         {data.map((item, i) => (
           <div key={i}>

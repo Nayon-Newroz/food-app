@@ -109,9 +109,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = () => {
   const classes = useStyles();
-  const [language, setLanguage] = useState("English");
-  const [dense, setDense] = React.useState(false);
-  const [secondary, setSecondary] = React.useState(false);
+  const [language, setLanguage] = useState("English"); 
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -122,13 +120,7 @@ const Home = () => {
     setLanguage(event.target.value);
   };
 
-  function generate(element) {
-    return [0, 1, 2].map((value) =>
-      React.cloneElement(element, {
-        key: value,
-      })
-    );
-  }
+ 
 
   const Demo = styled("div")(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,

@@ -8,7 +8,7 @@ import cardBackground2 from "../../assets/images/cardBackground2.png";
 import user from "../../assets/images/user.svg";
 import Heart from "../../assets/images/Heart.svg";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -42,8 +42,10 @@ const useStyles = makeStyles({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     position: "relative",
-
     width: "100%",
+    [theme.breakpoints.down(376)]: {
+      height: "130px",
+    },
   },
 
   cardIconDiv: {
@@ -62,7 +64,21 @@ const useStyles = makeStyles({
     height: "30px",
     marginRight: "10px",
   },
-});
+  carouselWidth: {
+    minWidth: "500px",
+    [theme.breakpoints.down(376)]: {
+      minWidth: "440px",
+    },
+  },
+  dotStyle: {
+    background: "#fff",
+    height: "4px",
+    width: "4px",
+    borderRadius: "50%",
+    margin: "0 5px",
+    display: "inline-block",
+  },
+}));
 
 const RestaurantItemCorousel = () => {
   const classes = useStyles();
@@ -101,7 +117,7 @@ const RestaurantItemCorousel = () => {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div style={{ minWidth: "500px" }}>
+    <div className={classes.carouselWidth}>
       <Slider {...settings}>
         {[1, 2, 3, 4, 5, 6].map((item, i) => (
           <div key={i}>
@@ -134,17 +150,7 @@ const RestaurantItemCorousel = () => {
                       className={classes.p}
                       style={{ color: "#fff", fontSize: "10px" }}
                     >
-                      2 days ago{" "}
-                      <span
-                        style={{
-                          background: "#fff",
-                          height: "4px",
-                          width: "4px",
-                          borderRadius: "50%",
-                          margin: "0 5px",
-                          display: "inline-block",
-                        }}
-                      ></span>{" "}
+                      2 days ago <span className={classes.dotStyle}></span>{" "}
                       Instagram
                     </p>
                   </div>

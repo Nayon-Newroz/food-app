@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "600 !important",
 
     [theme.breakpoints.down(376)]: {
-      fontSize: "15px !important",
+      fontSize: "13px !important",
     },
   },
   iconButtonStyle2: {
@@ -276,7 +276,7 @@ const DineMenu = () => {
         }}
       >
         <Grid container alignItems="center">
-          <Grid item xs={4.5}>
+          <Grid item xs={4}>
             <Button
               disableRipple={true}
               variant="outlined"
@@ -288,7 +288,7 @@ const DineMenu = () => {
             </Button>
             &nbsp;
           </Grid>
-          <Grid item xs={7.5} style={{ overflow: "hidden" }}>
+          <Grid item xs={8} style={{ overflow: "hidden" }}>
             <DineInDetailCorousel />
           </Grid>
         </Grid>
@@ -402,7 +402,7 @@ const DineMenu = () => {
           paddingLeft: "20px",
           paddingRight: "20px",
           margin: "15px auto",
-          height: "150px",
+          // height: "150px",
           overflow: "hidden",
         }}
       >

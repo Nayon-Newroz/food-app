@@ -18,7 +18,7 @@ import Liker2 from "../../assets/images/Liker2.svg";
 import Liker3 from "../../assets/images/Liker3.svg";
 import LikerRest from "../../assets/images/LikerRest.svg";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) =>({
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -37,6 +37,10 @@ const useStyles = makeStyles({
     color: "#666E7A",
     margin: 0,
     fontWeight: 400,
+    [theme.breakpoints.down(376)]: {
+      fontSize: "12px",
+    },
+    
   },
   p: {
     fontSize: "12px",
@@ -70,7 +74,13 @@ const useStyles = makeStyles({
     padding: "0px !important",
     borderRadius: "5px !important",
   },
-});
+  carouselWidth:{
+    minWidth: "560px",
+    [theme.breakpoints.down(376)]: {
+      minWidth: "520px",
+    },
+  }
+}));
 
 const RecommendationItemCarousel = () => {
   const classes = useStyles();
@@ -109,7 +119,7 @@ const RecommendationItemCarousel = () => {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div style={{ minWidth: "560px" }}>
+    <div className={classes.carouselWidth}>
       <Slider {...settings}>
         {[1, 2, 3, 4, 5, 6].map((item, i) => (
           <div key={i}>
@@ -139,7 +149,7 @@ const RecommendationItemCarousel = () => {
                       alignItems="center"
                       style={{ marginBottom: "10px" }}
                     >
-                      <Grid item xs={4}>
+                      <Grid item xs={6}>
                         <Grid container alignItems="center">
                           <Grid item>
                             {" "}
@@ -156,7 +166,7 @@ const RecommendationItemCarousel = () => {
                           </Grid>
                         </Grid>
                       </Grid>
-                      <Grid item xs={8}>
+                      <Grid item xs={6}>
                         <Stack
                           direction="row"
                           spacing={-0.7}
