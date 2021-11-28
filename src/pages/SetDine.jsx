@@ -418,21 +418,6 @@ const SetDine = () => {
             <MenuItem value={15}>15</MenuItem>
           </Select>
         </FormControl>
-        {/* <List>
-          <ListItem
-            className={classes.listItemStyle}
-            secondaryAction={<img src={forwardIcon} alt="" />}
-          >
-            <ListItemAvatar className={classes.listItemAvatarStyle}>
-              <img src={dishIcon} alt="" className={classes.imageStyle} />
-            </ListItemAvatar>
-            <ListItemText className={classes.iconButtonStyle}>
-              Order
-            </ListItemText>
-          </ListItem>
-         
-          
-        </List> */}
       </Container>
       <Container
         maxWidth="xs"
@@ -440,7 +425,7 @@ const SetDine = () => {
           padding: "15px 20px ",
         }}
       >
-        <Link to="/dine-menu" style={{textDecoration:'none'}}>
+        <Link to="/dine-menu" style={{ textDecoration: "none" }}>
           <div className={classes.buttonStyle}>Start Ordering</div>
         </Link>
       </Container>

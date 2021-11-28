@@ -1,6 +1,7 @@
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Navigation from "./pages/Navigation"; 
-import Navbar from "./pages/partial/Navbar";
+import Layout from "./pages/Layout";
+import Navigation from "./pages/Navigation";
+import { BrowserRouter as Router } from "react-router-dom";
 
 // import './App.css';
 const theme = createTheme({
@@ -16,19 +17,13 @@ const theme = createTheme({
 
 function App() {
   return (
-    <div
-      style={{
-        margin: 0,
-        padding: 0,
-        boxSizing: "border-box",
-      }}
-    >
+    
       <ThemeProvider theme={theme}>
-        
-        <Navigation />
-        {/* <Navbar /> */}
+        <Router>
+          <Layout />
+        </Router>
       </ThemeProvider>
-    </div>
+    
   );
 }
 

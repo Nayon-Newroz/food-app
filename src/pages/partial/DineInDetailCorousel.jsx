@@ -45,15 +45,33 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "2px !important",
     },
     [theme.breakpoints.down(376)]: {
-      fontSize: "10px !important",
+      fontSize: "11px !important",
     },
   },
-  carouselWidth:{
+  carouselWidth: {
     minWidth: "350px",
     [theme.breakpoints.down(376)]: {
-      minWidth: "310px",
+      minWidth: "290px",
     },
-  }
+  },
+  iconStyle: {
+    height: "18px",
+    [theme.breakpoints.down(376)]: {
+      height: "14px",
+    },
+  },
+  dotStyle: {
+    background: "#666E7A",
+    height: "5px",
+    width: "5px",
+    borderRadius: "50%",
+    margin: "0 5px",
+    [theme.breakpoints.down(376)]: {
+      height: "3px",
+      width: "3px",
+      margin: "0 4px",
+    },
+  },
 }));
 
 const DineInDetailCorousel = () => {
@@ -105,13 +123,15 @@ const DineInDetailCorousel = () => {
       <Slider {...settings}>
         {data.map((item, i) => (
           <div key={i}>
-            <div style={{ padding: "0 20px 0 0", margin: "auto" }}>
+            <div>
               {i % 2 !== 0 ? (
                 <Button
                   className={classes.iconButtonStyle2}
                   disableRipple={true}
                   variant="outlined"
-                  startIcon={<img src={item.icon} alt="" />}
+                  startIcon={
+                    <img src={item.icon} alt="" className={classes.iconStyle} />
+                  }
                 >
                   {item.Resturent}{" "}
                 </Button>
@@ -120,18 +140,11 @@ const DineInDetailCorousel = () => {
                   className={classes.iconButtonStyle2}
                   disableRipple={true}
                   variant="outlined"
-                  startIcon={<img src={item.icon} alt="" />}
+                  startIcon={
+                    <img src={item.icon} alt="" className={classes.iconStyle} />
+                  }
                 >
-                  {item.NoOfPersons}{" "}
-                  <span
-                    style={{
-                      background: "#666E7A",
-                      height: "7px",
-                      width: "7px",
-                      borderRadius: "50%",
-                      margin: "0 5px",
-                    }}
-                  ></span>{" "}
+                  {item.NoOfPersons} <span className={classes.dotStyle}></span>{" "}
                   Table No: {item.TableNo}
                 </Button>
               )}

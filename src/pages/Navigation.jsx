@@ -1,14 +1,13 @@
 import React from "react";
 import DineMenu from "./DineMenu";
 import Home from "./Home";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SetDine from "./SetDine";
-import Navbar from "./partial/Navbar";
 
 const Navigation = () => {
   return (
-    <div>
-      <Router>
+    <React.Fragment>
+     
         <Switch>
           <Route path="/set-dine">
             <SetDine />
@@ -21,9 +20,8 @@ const Navigation = () => {
             <Home />
           </Route>
         </Switch>
-      </Router>
-      {/* <Navbar /> */}
-    </div>
+   
+    </React.Fragment>
   );
 };
 

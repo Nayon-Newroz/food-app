@@ -200,7 +200,7 @@ const DineMenu = () => {
       behavior: "smooth",
     });
 
-    const yOffset = -50;
+    const yOffset = -70;
     const element = document.getElementById(id);
     const y =
       element.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -210,32 +210,44 @@ const DineMenu = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-    document.addEventListener("scroll", () => {
-      const scrollCheck = window.scrollY;
-      // console.log("scrollCheck", scrollCheck);
-      let sectionId;
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 70;
-        // console.log("sectionTop", sectionTop, sectionTop-50);
-        // const sectionHeight = section.clientHeight;
-        // console.log("sectionHeight", sectionHeight);
+    let sectionsDetail = [];
 
-        if (scrollCheck >= sectionTop) {
-          sectionId = section.getAttribute("id");
-          setActive(sectionId);
-          // console.log("sectionId", sectionId);
-        }
-      });
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 90;
+      let sectionId = section.getAttribute("id");
+
+      sectionsDetail.push({ id: sectionId, top: sectionTop });
+      // console.log("sectionTop", sectionTop, sectionTop-90);
+      // const sectionHeight = section.clientHeight;
+      // console.log("sectionHeight", sectionHeight);
     });
 
-    console.log("body", window.screen.availHeight);
+    document.addEventListener("scroll", () => {
+      const scrollCheck = window.scrollY;
+
+      let sectionId;
+
+      if (scrollCheck >= sectionsDetail[0].top) {
+        sectionsDetail.forEach((element, index) => {
+          if (scrollCheck >= element.top) {
+            sectionId = element.id;
+          }
+        });
+      }
+
+      if (typeof sectionId === "undefined") {
+        setActive("Deals");
+      } else {
+        setActive(sectionId);
+      }
+    });
   }, []);
   // useEffect(() => {
   //   setActive("Deals");
   //   window.scrollTo(0, 0);
   // }, []);
   return (
-    <div style={{background:'#FAF9FB'}}>
+    <div style={{ background: "#FAF9FB" }}>
       <CssBaseline />
       <Container
         maxWidth="xs"
@@ -340,9 +352,7 @@ const DineMenu = () => {
           </Grid>
         </Grid>
       </Container>
-     
-     
-     
+
       <Container maxWidth="xs" className={classes.container2SidePadding}>
         <Box sx={{ margin: "25px 0px" }}>
           <FormControl fullWidth variant="outlined">
