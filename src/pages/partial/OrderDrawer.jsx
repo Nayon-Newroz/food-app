@@ -51,7 +51,7 @@ export default function SwipeableTemporaryDrawer({ drawerOpen }) {
     <Box
       sx={{
         width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
-        maxHeight: "90vh",
+        maxHeight: "85vh",
       }}
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}
