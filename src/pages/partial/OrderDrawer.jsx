@@ -5,6 +5,7 @@ import SetDine from "../SetDine";
 import ClearIcon from "@mui/icons-material/Clear";
 import IconButton from "@mui/material/IconButton";
 import { makeStyles } from "@mui/styles"; 
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const useStyles = makeStyles((theme) => ({
   buttonStyle: {
@@ -26,6 +27,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SwipeableTemporaryDrawer({ drawerOpen }) {
+  
+  const matches = useMediaQuery("(min-width:600px)");
   const classes = useStyles();
   const [state, setState] = React.useState({
     top: false,
@@ -50,8 +53,10 @@ export default function SwipeableTemporaryDrawer({ drawerOpen }) {
   const list = (anchor) => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        // width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
         maxHeight: "85vh",
+        width: "auto",
+        margin: matches === true ? "auto" : "none",
       }}
       role="presentation"
       // onClick={toggleDrawer(anchor, false)}

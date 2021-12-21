@@ -3,7 +3,9 @@ import Layout from "./pages/Layout";
 import Navigation from "./pages/Navigation";
 import { BrowserRouter as Router } from "react-router-dom";
 
-// import './App.css';
+import Container from "@mui/material/Container";
+
+import './App.css';
 const theme = createTheme({
   // palette: {
   //   primary: {
@@ -17,13 +19,19 @@ const theme = createTheme({
 
 function App() {
   return (
-    
+    <Container
+    maxWidth="xs"
+    style={{
+      background: "#fff", 
+      padding: 0, 
+    }}
+  >
       <ThemeProvider theme={theme}>
         <Router>
           <Layout />
         </Router>
       </ThemeProvider>
-    
+      </Container>
   );
 }
 

@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#272D2F",
   },
   cardTitleStyle: {
-    fontSize: "18px",
+    fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
     fontWeight: 500,
     margin: "0 0 0 0",

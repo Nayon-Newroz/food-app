@@ -30,12 +30,14 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "'Inter', sans-serif",
     fontWeight: "bold",
     margin: 0,
+    color:'#272D2F',
   },
   h3: {
     fontSize: "22px",
     fontFamily: "'Inter', sans-serif",
     fontWeight: "bold",
     margin: "0 0 5px 0",
+    color:'#272D2F',
   },
   h4: {
     fontSize: "16px",

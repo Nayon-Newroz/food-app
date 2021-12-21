@@ -18,7 +18,7 @@ import Liker2 from "../../assets/images/Liker2.svg";
 import Liker3 from "../../assets/images/Liker3.svg";
 import LikerRest from "../../assets/images/LikerRest.svg";
 
-const useStyles = makeStyles((theme) =>({
+const useStyles = makeStyles((theme) => ({
   h4: {
     fontSize: "16px",
     fontFamily: "'Inter', sans-serif",
@@ -40,7 +40,6 @@ const useStyles = makeStyles((theme) =>({
     [theme.breakpoints.down(376)]: {
       fontSize: "12px",
     },
-    
   },
   p: {
     fontSize: "12px",
@@ -70,16 +69,16 @@ const useStyles = makeStyles((theme) =>({
     marginRight: "10px",
   },
   buttonStyle: {
-    background: "black !important",
+    background: "#272D2F !important",
     padding: "0px !important",
     borderRadius: "5px !important",
   },
-  carouselWidth:{
+  carouselWidth: {
     minWidth: "560px",
     [theme.breakpoints.down(376)]: {
       minWidth: "520px",
     },
-  }
+  },
 }));
 
 const RecommendationItemCarousel = () => {
